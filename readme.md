@@ -1,5 +1,7 @@
 
-EzBit Api Server
+AllcryptoquickDevelopment
+/
+EZ-API-Wallet-Docker_for-Development
 ====================================
 Bitcoin RESTful API JSONRPC Wrapper - PHP
 -----
