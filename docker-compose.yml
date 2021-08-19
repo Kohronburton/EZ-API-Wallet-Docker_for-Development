@@ -1,0 +1,60 @@
+version: "3.7"
+services:
+  app:
+    image: "wallet/app:${TAG:-latest}"
+    build:
+      args:
+        user: walletuser
+        uid: 1000
+      context: ./
+      dockerfile: docker-compose/app.dockerfile
+    container_name: wallet-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+
+  nginx:
+    image: "wallet/nginx:${TAG:-latest}"
+    build:
+      context: ./
+      dockerfile: docker-compose/nginx.dockerfile
+    container_name: wallet-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+
+  pgsql:
+    image: postgres:9.4
+    container_name: wallet-pgsql
+    restart: unless-stopped
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: wallet-usr
+      POSTGRES_PASSWORD: wallet-pwd
+      POSTGRES_DB: ezbitapi
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+  mailhog:
+    image: mailhog/mailhog
+    logging:
+      driver: "none"
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  database-data:
