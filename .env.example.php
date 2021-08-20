@@ -1,0 +1,21 @@
+<?php
+return [
+    'APP_NAME' => 'Bitcoin API wallet',
+    'APP_ENV' => 'local',
+    'DEBUG' => true,
+    'TESTNET' => true,
+    'CALLBACK_SECRET' => 'secretgoeshere',
+    'APP_SECRET' => '',
+    'PRIVATE_INVOICING' => true,
+    'ADMIN_EMAIL' => 'admin@domain.com',
+    'EMAIL_USERNAME' => 'apisendmail',
+    'EMAIL_PASSWORD' => 'emailpassword',
+    'MAIL_HOST' => 'mailhog',
+    'MAIL_PORT' => '1025',
+    'MAIL_ENCRYPTION' => null,
+    'DATABASE_DRIVER'   => 'pgsql',
+    'DATABASE_HOST'   => 'pgsql',
+    'DATABASE_NAME'     => 'ezbitapi',
+    'DATABASE_USER'     => 'wallet-usr',
+    'DATABASE_PASS'     => 'wallet-pwd',
+];
