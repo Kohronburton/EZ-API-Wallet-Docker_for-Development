@@ -56,5 +56,5 @@
           with:
             app-name: 'dev-ezi-api'
             slot-name: 'production'
-            publish-profile: ${{ secrets.AzureAppService_PublishProfile_736e992b8dcc4d28a2529530cc4a2ad4 }}
+            publish-profile: ${{ secrets.AzureAppService_PublishProfile_037073f0f4f14d29941da271b8b06783 }}
             package: .
